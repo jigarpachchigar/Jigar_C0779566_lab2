@@ -60,8 +60,8 @@
 
 			//formatting table
 			table.style.borderColor = "black";
-			table.style.marginTop = "15px"
-			table.border = "ridge 15px"
+			table.style.marginTop = "10px"
+			table.border = "ridge 10px"
 
 			// generating rows and columns
 			for (var i=0; i<rows; i++){
@@ -70,8 +70,6 @@
 				
 				for (var j=0; j<columns; j++){
 					var td = document.createElement('td');
-					td.style.fontSize = "15px";
-					td.style.textAlign = "center";
 					td.appendChild(document.createTextNode(" Cell[" + i + "," + j + "] "));
 					tr.appendChild(td);
 				}
@@ -84,8 +82,43 @@
 
 		}
 
+		//function to add row dynamically
+		function addRow()
+    {
+        var table=document.getElementsByTagName('table')[0];
+        var rows = table.rows;
+		var row = table.insertRow(-1);
 
-		 //function for clear screen
+		var colno = rows[0].childNodes.length;
+        var rowno = table.childNodes.length;
+        
+        for (var i=0; i<colno; i++)
+        {
+            var newRow = row.insertCell(i);
+            newRow.innerHTML="cell[" + rowno + "," + i + "]";
+        }
+    }
+
+		//function to add column dynamically
+
+		function addColumn()
+		{
+
+			var table=document.getElementsByTagName('table')[0];
+			var rows = table.rows;
+			
+			var colno = rows[0].childNodes.length;
+			var rowno = table.childNodes.length;
+			
+			for (var i=0; i<rows.length; i++)
+			{
+				var newCol = rows[i].insertCell(-1);
+				newCol.innerHTML="cell[" + i + "," + colno + "]";
+			}
+		}
+
+
+		 //function for clear screen or other elemnets
 		 function ClearScreen() {
            
 			document.getElementsByTagName("body")[0].innerHTML = " ";
