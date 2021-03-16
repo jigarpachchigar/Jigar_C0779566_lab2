@@ -12,6 +12,40 @@
 	<script language="javascript">
 		
 		//Your code goes here
+
+		//function to check user input
+		function CheckUserInput() {
+
+		var rows = document.getElementById("t1").value;
+		var cols = document.getElementById("t2").value;
+
+			if(rows == "" || cols == "") 
+			{
+				alert("Sorry ! Please Enter Valid Input");
+				reload();
+			}
+
+			else if(rows == 0 || cols == 0)
+			{
+				alert("Sorry ! Please Enter Appropriate Rows And Columns No. To Generate Table");
+				reload();
+			}
+
+		}
+
+		//function to generate required table
+
+		function generateTable() {
+
+			//calling user input to check entered input
+			CheckUserInput();
+
+
+			
+
+		}
+
+			
 	
 	</script>
 	
